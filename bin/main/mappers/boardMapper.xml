@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.board.mapper.BoardMapper">
+
+	<insert id="boardInsert" parameterType="com.board.domain.BoardVO">
+		INSERT INTO board_pro(bno, subject, content, writer, reg_date, hit)
+			VALUES (#{bno}, #{subject}, #{content}, #{writer}, now(), 0)
+	</insert>
+
+	<select id="boardList" resultType="com.board.domain.BoardVO">
+		SELECT bno, subject, content, writer, reg_date, hit FROM board_pro
+	</select>
+
+</mapper>
